@@ -24,7 +24,7 @@ var express       = require('express'),
 // ---------------------
 // Required scripts
 // =====================
-    config        = require('./config/database.config');
+    config        = require('./config/database.config'),
     tutRoute      = require('./routes/main.routes');
 
 // ---------------------
@@ -34,25 +34,18 @@ mongoose.connect(config.DBUrl);
 require('./config/passport.config')(passport); // pass passport for configuration
 
 // ---------------------
-// Set...
-// =====================
-// tutApp.set('superSecret', configDB.secret);
-
-// ---------------------
 // Use...
 // =====================
 tutApp.use(bodyParser.urlencoded({ extended: true }));
 tutApp.use(bodyParser.json());
 tutApp.use(morgan('dev'));
 tutApp.use(cookieParser()); // read cookies (needed for auth)
-// tutApp.use(configDB);
 
 tutApp.use(session(config));
 tutApp.use(passport.initialize());
 tutApp.use(passport.session()); // persistent login sessions
 tutApp.use(flash()); // use connect-flash for flash messages
 
-// tutApp.use('/', tutRoute);
 // ---------------------
 // Load routes, passing in tutApp and fully configured passport
 // =====================

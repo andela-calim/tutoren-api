@@ -1,7 +1,6 @@
 // get an instance of mongoose and mongoose.Schema
 var mongoose     = require('mongoose');
 var bcrypt       = require('bcrypt-nodejs');
-// var Schema       = mongoose.Schema;
 
 // set up mongoose model
 var userSchema   = mongoose.Schema({
@@ -15,13 +14,6 @@ var userSchema   = mongoose.Schema({
     role         : Array,
     languages    : Array 
   }
-
-  // firstName      : String,
-  // lastName       : String,
-  // email          : String,
-  // hasRole        : Boolean,
-  // role           : Array,
-  // languages      : Array 
 });
 
 // ---------------------

@@ -6,6 +6,7 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy,
     // load the auth variables
     configAuth     = require('./auth.config');
 
+// export the configurations
 module.exports     = function(passport) {
 
   // used to serialize the user for the session

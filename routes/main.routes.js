@@ -9,7 +9,6 @@ module.exports = function(tutApp, passport) {
   tutApp.route('/')
   .get(function(req, res) {
     res.send('Welcome to the index')
-    // res.render('index.html');
   })
 
   .post(function(req, res) {
@@ -21,11 +20,7 @@ module.exports = function(tutApp, passport) {
   .get(isLoggedIn, function(req, res) {
     console.log(req.user);
     var userDet = req.user;
-    // console.log(scope);
-    res.status(200).send(userDet + 'get...within profile.');
-    // res.render('../profile.html', {
-    //   user : req.user
-    // });
+    res.status(200).send(req.user);
   })
 
   .post(isLoggedIn, function(req, res) {
@@ -50,7 +45,6 @@ module.exports = function(tutApp, passport) {
   .get(passport.authenticate('google', {
     scope : ['profile', 'email'],
     hostedDomain: 'andela.co'
-    // failureredirect: '/'
   }));
 
   tutApp.route('/oauth2callback')
@@ -65,5 +59,4 @@ function isLoggedIn(req, res, next) {
     return next();
 
   res.redirect('/');
-  // return next();
 }
