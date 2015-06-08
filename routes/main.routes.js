@@ -54,6 +54,13 @@ module.exports = function(tutApp, passport) {
    }));
 };
 
+/**
+ * [isLoggedIn description]
+ * @param  {[type]}
+ * @param  {[type]}
+ * @param  {Function}
+ * @return {Boolean}
+ */
 function isLoggedIn(req, res, next) {
   if(req.isAuthenticated())
     return next();

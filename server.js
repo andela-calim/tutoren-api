@@ -1,6 +1,7 @@
 // ---------------------
 // Required modules
 // =====================
+require('dotenv').load();
 
 var express       = require('express'),
     morgan        = require('morgan'),
